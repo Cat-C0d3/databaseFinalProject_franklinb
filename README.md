@@ -1,91 +1,47 @@
-# Java Quick Start Project
+# Refined Data Model:
+Actor
+{
+	Int: id,
+	String: name,
+	Int: movie_id
+}
 
-This repository contains code samples for the Quick Start blog post series.
+Category
+{
+	Int: id,
+	String: name
+}
 
-You can read more about the Quick Start series on the [MongoDB Developer Hub](https://developer.mongodb.com/learn/).
+Movie 
+{
+	Int: id,
+	String: title,
+	String: director,
+	Int: category_id,
+	Double: duration,
+	String: rating,
+	Int: yearReleased,
+	String: imageName
+}
 
-- [MongoDB & Java - CRUD Operations Tutorial](https://developer.mongodb.com/quickstart/java-setup-crud-operations)
-- [Java - Mapping POJOs](https://developer.mongodb.com/quickstart/java-mapping-pojos)
-- [Java - Aggregation Pipeline](https://developer.mongodb.com/quickstart/java-aggregation-pipeline)
-- [Java - Change Streams](https://developer.mongodb.com/quickstart/java-change-streams)
-- [Java - Client Side Field Level Encryption](https://developer.mongodb.com/quickstart/java-client-side-field-level-encryption/)
+Inventory
+{
+	Int: id,
+	Int: movie_id,
+	Double: price,
+	Int: stockCount
+}
 
-# MongoDB Cluster
+* Created inventory schema to separate information that does not tie directly to the movie itself.
+* Changed recording schema to movie.
 
-To get started with MongoDB Atlas and get a free cluster read [this blog post](https://developer.mongodb.com/quickstart/free-atlas-cluster).
+# Query Results
+3. List the number of videos for each video category. 
+4. List the number of videos for each video category where the inventory is non-zero. 
+5. For each actor, list the video categories that actor has appeared in. 
+6. Which actors have appeared in movies in different video categories? 
+7. Which actors have not appeared in a comedy? 
+8. Which actors have appeared in both a comedy and an action adventure movie?
 
-# Requirements
+# Benefits/Drawbacks to MongoDB for this project:
 
-- Java JDK 8 to 15.
-- Maven 3.6.3.
-
-# Command lines
-
-- Compile: 
-
-```sh
-mvn clean compile
-```
-
-- Run the `HelloMongoDB` class: 
-
-```sh
-mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.HelloMongoDB" -Dexec.cleanupDaemonThreads=false
-```
-- Run the `Connection` class: 
-
-```sh
-mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.Connection" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority" -Dexec.cleanupDaemonThreads=false
-```
-
-- Run the `Create` class:
-
-```sh
-mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.Create" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority" -Dexec.cleanupDaemonThreads=false
-```
-
-- Run the `Read` class:
-
-```sh
-mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.Read" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority" -Dexec.cleanupDaemonThreads=false
-```
-
-- Run the `Update` class:
-
-```sh
-mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.Update" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority" -Dexec.cleanupDaemonThreads=false
-```
-
-- Run the `Delete` class:
-
-```sh
-mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.Delete" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority" -Dexec.cleanupDaemonThreads=false
-```
-
-- Run the `MappingPOJO` class:
-
-```sh
-mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.MappingPOJO" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority" -Dexec.cleanupDaemonThreads=false
-```
-
-- Run the `AggregationFramework` class:
-
-```sh
-mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.AggregationFramework" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority" -Dexec.cleanupDaemonThreads=false
-```
-
-- Run the `ChangeStreams` class:
-
-```sh
-mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.ChangeStreams" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority" -Dexec.cleanupDaemonThreads=false
-```
-
-- Run the `ClientSideFieldLevelEncryption` class:
-```sh
-mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.csfle.ClientSideFieldLevelEncryption" -Dmongodb.uri="mongodb+srv://USERNAME:PASSWORD@cluster0-abcde.mongodb.net/test?w=majority" -Dexec.cleanupDaemonThreads=false
-```
-
-
-# Author
-
-Maxime Beugnet <maxime@mongodb.com>
