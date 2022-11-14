@@ -44,4 +44,8 @@ Inventory
 8. Which actors have appeared in both a comedy and an action adventure movie?
 
 # Benefits/Drawbacks to MongoDB for this project:
+As someone who is more familiar with SQL, I felt that it took much longer to write
+the MongoDB queries, as there is a lot more setup. However, there is also less type-checking
+compared to traditional SQL (when creating entries/variables, for example). I do think that
+there is more setup when using MongoDB but it can also be versatile once the setup is done.
 
