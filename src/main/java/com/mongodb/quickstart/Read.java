@@ -21,21 +21,37 @@ public class Read {
             MongoCollection<Document> categoryCollection = sampleTrainingDB.getCollection("category");
             MongoCollection<Document> actorCollection = sampleTrainingDB.getCollection("actor");
 
-            getNumVideosInCategories(videoCollection, categoryCollection);
-            getNumVideosInCategoriesWithNonZeroInventory(videoCollection);
-            getCategoriesForActors(actorCollection, categoryCollection, videoCollection);
-            getActorsWithMultipleCategories(actorCollection, categoryCollection, videoCollection);
-            getNonComedyActors(actorCollection, categoryCollection, videoCollection);
-            getComedyAndActionActors(actorCollection, categoryCollection, videoCollection);
+              getNumVideosInCategories(videoCollection, categoryCollection);
+              getNumVideosInCategoriesWithNonZeroInventory(videoCollection, categoryCollection);
+              getCategoriesForActors(actorCollection, categoryCollection, videoCollection);
+              getActorsWithMultipleCategories(actorCollection, categoryCollection, videoCollection);
+              getNonComedyActors(actorCollection, categoryCollection, videoCollection);
+              getComedyAndActionActors(actorCollection, categoryCollection, videoCollection);
         }
     }
 
     public static void getNumVideosInCategories(MongoCollection videoCollection, MongoCollection categoryCollection){
-
+        //iterate through categories
+        //find num movies by each category id
+        FindIterable<Document> iterable = categoryCollection.find();
+        try (MongoCursor<Document> cursor = iterable.iterator()) {
+            while (cursor.hasNext()) {
+                System.out.println(cursor.next());
+            }
+        }
     }
 
-    public static void getNumVideosInCategoriesWithNonZeroInventory(MongoCollection videoCollection){
-
+    public static void getNumVideosInCategoriesWithNonZeroInventory(MongoCollection videoCollection, MongoCollection categoryCollection){
+        //iterate through categories
+        //get videos in category
+        //check inventory from last result
+        FindIterable<Document> iterable = categoryCollection.find();
+        try (MongoCursor<Document> cursor = iterable.iterator()) {
+            while (cursor.hasNext()) {
+                System.out.println(cursor.next());
+            }
+        }
+        
     }
 
     public static void getCategoriesForActors(MongoCollection actorCollection, MongoCollection categoryCollection, MongoCollection videoCollection){
